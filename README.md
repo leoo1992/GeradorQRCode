@@ -1,0 +1,1 @@
+Projeto para gerar QR code apartir de um texto
