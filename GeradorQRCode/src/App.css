@@ -1,6 +1,8 @@
 #root {
-  max-width: 1280px;
-  min-width: 320px;
+  max-width: 100vw;
+  min-width: 100vw;
+  max-height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 0px;
 }
@@ -18,4 +20,23 @@
 
 .p-toast .p-toast-icon-close:hover {
   background-color: darkred;
+}
+
+
+.fundo-pagina {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: rgb(63, 94, 251);
+  background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(115, 70, 252, 1) 100%);
+  overflow: hidden; /* Hide any overflow content */
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
