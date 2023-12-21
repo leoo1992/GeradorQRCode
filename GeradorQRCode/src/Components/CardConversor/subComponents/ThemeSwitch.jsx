@@ -1,9 +1,36 @@
 /* eslint-disable react/prop-types */
-import { styled } from '@mui/material/styles';
+import { styled, keyframes } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
-const MaterialUISwitch = styled(Switch)(() => ({
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const pulseBrightness = keyframes`
+  0% {
+    filter: brightness(1);
+  }
+  25% {
+    filter: brightness(1.25);
+  }
+  50% {
+    filter: brightness(1.5);
+  }
+  75% {
+    filter: brightness(1.75);
+  }
+  100% {
+    filter: brightness(2);
+  }
+`;
+
+const MaterialUISwitch = styled(Switch)(({ defaultChecked }) => ({
     width: 62,
     height: 34,
     padding: 7,
@@ -14,6 +41,7 @@ const MaterialUISwitch = styled(Switch)(() => ({
         '&.Mui-checked': {
             color: '#ffff',
             transform: 'translateX(22px)',
+            animation: `${pulseBrightness} 2s infinite alternate`,
             '& .MuiSwitch-thumb:before': {
                 backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
                     '#84ffff',
@@ -36,6 +64,7 @@ const MaterialUISwitch = styled(Switch)(() => ({
             height: '100%',
             left: 0,
             top: 0,
+            animation: `${defaultChecked ? pulseBrightness : rotate360} ${defaultChecked ? '2s infinite alternate' : '2s linear infinite'}`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
@@ -50,7 +79,7 @@ const MaterialUISwitch = styled(Switch)(() => ({
     },
 }));
 
-function ThemeSwitch({ onSwitchChange }) {
+function ThemeSwitch({ onSwitchChange, defaultChecked }) {
     const handleChange = (event) => {
         onSwitchChange(event.target.checked);
     };
@@ -60,9 +89,9 @@ function ThemeSwitch({ onSwitchChange }) {
             id="themeSwitch"
             name="themeSwitch"
             className='m-0 p-0 mt-2'
-            control={<MaterialUISwitch defaultChecked={true} onChange={handleChange} />}
+            control={<MaterialUISwitch defaultChecked={!defaultChecked} onChange={handleChange} />}
         />
-    )
+    );
 }
 
-export default ThemeSwitch
+export default ThemeSwitch;
