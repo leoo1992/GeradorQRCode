@@ -8,20 +8,25 @@
 }
 
 .p-toast .p-toast-icon-close {
-  background-color: red;
-  color: white;
-  border: darkred 1px solid;
+  background-color: indigo;
+  color: cyan;
+  border: cyan 1px solid;
   padding: 0;
-  margin: 0;
+  margin-left: 10px;
   font-weight: 900;
   border-radius: 30%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.315);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.315);
 }
 
 .p-toast .p-toast-icon-close:hover {
-  background-color: darkred;
+  background-color: rgb(255, 0, 251);
+  color: white;
 }
 
+/* .p-toast-top-right {
+  display: flex;
+  justify-content: flex-end;
+} */
 
 .fundo-pagina {
   position: fixed;
@@ -32,7 +37,7 @@
   z-index: -1;
   background: rgb(63, 94, 251);
   background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(115, 70, 252, 1) 100%);
-  overflow: hidden; /* Hide any overflow content */
+  overflow: hidden; 
 }
 
 .background-image {
