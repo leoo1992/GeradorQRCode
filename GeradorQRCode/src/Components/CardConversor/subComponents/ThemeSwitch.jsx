@@ -60,7 +60,7 @@ function ThemeSwitch({ onSwitchChange }) {
             id="themeSwitch"
             name="themeSwitch"
             className='m-0 p-0 mt-2'
-            control={<MaterialUISwitch defaultChecked={false} onChange={handleChange} />}
+            control={<MaterialUISwitch defaultChecked={true} onChange={handleChange} />}
         />
     )
 }
