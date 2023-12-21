@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import DownloadingRoundedIcon from '@mui/icons-material/DownloadingRounded';
 import { styled } from '@mui/material/styles';
@@ -17,6 +18,7 @@ const VisuallyHiddenInput = styled('input')({
 });
 
 const CustomButton = ({ url, disabled, onClick }) => {
+    const [isHovered, setIsHovered] = useState(false);
     const buttonClassName = disabled ? 'disabled text-secondary' : 'bg-purple-600';
 
     const buttonStyle = {
@@ -28,14 +30,24 @@ const CustomButton = ({ url, disabled, onClick }) => {
         fontFamily: 'Alkatra'
     };
 
-
     const purpleBorderStyle = {
         border: '2px solid #3949ab',
+        transition: 'box-shadow 0.3s ease',
+    };
+
+    const hoverStyle = {
+        boxShadow: '0px 0px 300px 5px cyan', 
     };
 
     return (
-        <div className='p-0 m-0 mt-3 rounded-5' style={purpleBorderStyle} id='downloadDiv'>
-            <form formNoValidate  autoComplete='off' id='downloadForm' name='downloadForm' data-nosnippet>
+        <div 
+        className='p-0 m-0 mt-3 rounded-5' 
+        style={{ ...purpleBorderStyle, ...(isHovered ? hoverStyle : {}) }}
+        id='downloadDiv'
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        >
+            <form formNoValidate autoComplete='off' id='downloadForm' name='downloadForm' data-nosnippet>
                 <a href={url} download="qrcode.png" style={buttonStyle} id='downloadLink' name='downloadLink'>
                     <Button
                         component="label"
@@ -54,7 +66,7 @@ const CustomButton = ({ url, disabled, onClick }) => {
                             disabled={disabled}
                             name="qrCodeFile"
                             id='qrCodeFile'
-                            formNoValidate 
+                            formNoValidate
                             data-nosnippet
                             autoComplete='off'
                             hidden
