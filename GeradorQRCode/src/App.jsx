@@ -41,7 +41,7 @@ function App() {
             <Button
               variant="contained"
               color="secondary"
-              className='position-absolute bottom-0 end-0 z-2 opacity-50'
+              className='d-none position-absolute bottom-0 end-0 z-2 opacity-50'
               onClick={handleClick}
             >
               404 Error
