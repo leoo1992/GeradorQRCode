@@ -5,7 +5,7 @@ import CardBody from './subComponents/CardBody';
 import ThemeSwitch from './subComponents/ThemeSwitch';
 
 function CardConversor() {
-    const [isSwitchChecked, setIsSwitchChecked] = useState(true);
+    const [isSwitchChecked, setIsSwitchChecked] = useState(false);
 
     const cardStyle = {
         width: '315px',
