@@ -5,7 +5,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import { PrimeReactProvider } from 'primereact/api';
-import BackgroundImage from '../public/galaxy.jpg';
+import BackgroundImage from './Assets/galaxy.jpg';
 
 function App() {
   return (
