@@ -25,10 +25,11 @@ const CustomToast = ({ showToast }) => {
   useEffect(() => {
     if (showToast && toastRef.current) {
       toastRef.current.show({
-        severity: 'success',
+        severity: 'info',
         summary: 'Download Completo',
-        detail: 'Seu QRCode está na pasta downloads!',
         life: 3000,
+        className: 'bg-purple-600 text-cyan-100 fw-bold rounded-5 shadow-sm border-3',
+        style: { fontFamily: 'Alkatra', width: '250px' },
         icon: (
           <animated.div style={animatedProps}>
             <FaArrowUp />
