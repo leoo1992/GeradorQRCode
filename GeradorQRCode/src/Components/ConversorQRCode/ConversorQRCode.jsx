@@ -12,6 +12,15 @@ function ConversorQRCode() {
   const [qrCodeLink, setQRCodeLink] = useState('');
   const [showToast, setShowToast] = useState(false);
   const [showLengthWarning, setShowLengthWarning] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered1, setIsHovered1] = useState(false);
+  const [isDownloadDisabled, setDownloadDisabled] = useState(false);
+  const [isTextFieldDisabled, setTextFieldDisabled] = useState(false);
+
+  const hoverStyle = {
+    boxShadow: '0px 0px 300px 5px cyan',
+  };
+
   const generateQRCode = useCallback(async (linkURL) => {
     try {
       const url = await QRCodeLink.toDataURL(linkURL, {
@@ -19,26 +28,40 @@ function ConversorQRCode() {
         margin: 3,
       });
       setQRCodeLink(url);
+      return url;
     } catch (err) {
-      return;
+      return null;
     }
   }, []);
-  const isDisabled = link === '';
-  const handleButtonClick = useCallback(() => {
-    if (!isDisabled) {
-      setShowToast(true);
-      setLink('');
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
-      const linkElement = document.createElement('a');
-      linkElement.href = qrCodeLink;
-      linkElement.download = 'qrcode.png';
-      document.body.appendChild(linkElement);
-      linkElement.click();
-      document.body.removeChild(linkElement);
+
+  const handleButtonClick = useCallback(async () => {
+    if (!isDownloadDisabled) {
+      setDownloadDisabled(true);
+      setTextFieldDisabled(true);
+
+      const qrCodeUrl = await generateQRCode(link);
+
+      if (qrCodeUrl) {
+        const linkElement = document.createElement('a');
+        linkElement.href = qrCodeUrl;
+        linkElement.download = 'qrcode.png';
+        document.body.appendChild(linkElement);
+        linkElement.click();
+        document.body.removeChild(linkElement);
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        setShowToast(true);
+        setLink('');
+
+        setTimeout(() => {
+          setShowToast(false);
+          setDownloadDisabled(false);
+          setTextFieldDisabled(false);
+        }, 3000);
+      }
     }
-  }, [isDisabled, qrCodeLink]);
+  }, [isDownloadDisabled, link, generateQRCode]);
 
   const handleTextFieldChange = useCallback((event) => {
     const inputText = event.target.value;
@@ -58,22 +81,35 @@ function ConversorQRCode() {
       generateQRCode(link);
       setShowToast(false);
     }
+    setDownloadDisabled(link === '');
   }, [link, generateQRCode]);
 
   return (
     <>
       <CustomToast showToast={showToast} />
-      <QRCodeCustom value={link} />
-      <CustomTextField
-        inputRef={textQRCodeRef}
-        value={link}
-        onChange={handleTextFieldChange}
-        onKeyDown={(event) => event.key === 'Enter' && (event.preventDefault(), handleButtonClick())}
-      />
+      <div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={{ ...(isHovered ? hoverStyle : {}) }}
+        className='mt-3 mb-3 bg-white rounded-5 border-0 '>
+        <QRCodeCustom value={link} />
+      </div>
+      <div
+        onMouseEnter={() => setIsHovered1(true)}
+        onMouseLeave={() => setIsHovered1(false)}
+        style={{ ...(isHovered1 ? hoverStyle : {}) }}>
+        <CustomTextField
+          inputRef={textQRCodeRef}
+          value={link}
+          onChange={handleTextFieldChange}
+          onKeyDown={(event) => event.key === 'Enter' && (event.preventDefault(), handleButtonClick())}
+          disabled={isTextFieldDisabled}
+        />
+      </div>
       {showLengthWarning && <div className='text-danger p-0 m-0 fs-6'>* Limite de 2000 caracteres!</div>}
       <CustomButton
         url={qrCodeLink}
-        disabled={isDisabled}
+        disabled={isDownloadDisabled}
         onClick={handleButtonClick}
       />
     </>
