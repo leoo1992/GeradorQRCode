@@ -6,6 +6,7 @@ const CustomTextField = ({
     value,
     onChange,
     onKeyDown,
+    disabled,
 }) => {
 
     const purpleBorderStyle = {
@@ -32,6 +33,7 @@ const CustomTextField = ({
                 name="textFields"
                 inputRef={inputRef}
                 style={WolfFont}
+                disabled={disabled}
                 className="m-0 p-0 shadow-sm bg-body rounded-5 text-white"
                 color="secondary"
                 value={value}
