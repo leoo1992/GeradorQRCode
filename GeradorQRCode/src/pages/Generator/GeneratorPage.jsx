@@ -10,7 +10,7 @@ const GeneratorPage = ({ handleClick }) => {
 
   const shadowStyle = {
     transition: 'box-shadow 0.3s ease-in-out',
-    animation: 'pulse 1.5s infinite',
+    animation: 'pulse 5s infinite',
   };
 
   const hoverStyle = {
@@ -24,13 +24,13 @@ const GeneratorPage = ({ handleClick }) => {
         {`
           @keyframes pulse {
             0% {
-              box-shadow: 0px 0px 300px 60px cyan;
+              box-shadow: 0px 0px 120px 20px cyan;
             }
             50% {
-              box-shadow: 0px 0px 150px 30px cyan;
+              box-shadow: 0px 0px 75px 15px cyan;
             }
             100% {
-              box-shadow: 0px 0px 300px 60px cyan;
+              box-shadow: 0px 0px 150px 30px cyan;
             }
           }
         `}

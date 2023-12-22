@@ -22,7 +22,7 @@ function QRScanner() {
     const fetchRequest = (formData, file) => {
         textQRCodeRef.current.innerText = 'Lendo QR Code...';
 
-        fetch("http://api.qrserver.com/v1/read-qr-code/", {
+        fetch("https://api.qrserver.com/v1/read-qr-code/", {
             method: 'POST',
             body: formData
         })
