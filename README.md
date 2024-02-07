@@ -18,7 +18,7 @@ Esta hospedado aqui: https://gerador-qr-code-lli3wprch-leoo1992.vercel.app/
 git clone https://github.com/leoo1992/GeradorQRCode.git
 ```
 
-## Step 2: Iniciando o Aplicativo
+## Passo 2: Iniciando o Aplicativo
 
 ```bash
 # usando npm
@@ -34,4 +34,4 @@ yarn start
 Agora você deverá ver seu o aplicativo em execução local no seu navegador.
 
 # Foto do app: 
- ![app](../GeradorQRCode/GeradorQRCode/src/Assets/app.png)
+ ![app.png](./GeradorQRCode/src/Assets/app.png)
