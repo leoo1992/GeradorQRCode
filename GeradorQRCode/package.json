@@ -11,7 +11,7 @@
     "start": "vite dev"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
+    "@emotion/react": "^11.12.0",
     "@emotion/styled": "^11.11.5",
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
