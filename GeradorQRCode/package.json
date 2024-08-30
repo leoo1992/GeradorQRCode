@@ -19,7 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/icons-material": "^5.16.6",
     "@mui/material": "^5.16.6",
-    "@mui/system": "^5.16.6",
+    "@mui/system": "^5.16.7",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
