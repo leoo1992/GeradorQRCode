@@ -20,7 +20,7 @@
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
     "@mui/system": "^5.16.6",
-    "@tsparticles/engine": "^3.5.0",
+    "@tsparticles/engine": "^3.6.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
     "bootstrap": "^5.3.3",
