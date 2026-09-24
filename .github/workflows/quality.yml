@@ -1,0 +1,22 @@
+name: Quality Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test tests/quality.test.mjs
+      - working-directory: GeradorQRCode
+        run: npm install --no-audit --no-fund
+      - working-directory: GeradorQRCode
+        run: npm run lint
+      - working-directory: GeradorQRCode
+        run: npm run build
