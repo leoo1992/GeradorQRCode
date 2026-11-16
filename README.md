@@ -1,37 +1,23 @@
-Projeto para gerar QR code apartir de um texto e ler um QR code apartir de uma imagem enviada
+# Gerador de QR Code
 
-# Estou usando React + Vite
+Aplicação web para gerar um QR Code a partir de um texto e ler um QR Code a partir de uma imagem enviada.
 
-[![Assista ao vídeo](https://cdn.loom.com/sessions/thumbnails/23d4798a8c4640708469c5f195270ab5-with-play.gif)](https://www.loom.com/share/23d4798a8c4640708469c5f195270ab5)
-[Assista à demonstração aqui](https://www.loom.com/share/23d4798a8c4640708469c5f195270ab5)
+## Stack
+- React
+- Vite
+- Bibliotecas de QR Code e leitura por câmera/imagem
 
-Esta hospedado aqui: https://gerador-qr-code-lli3wprch-leoo1992.vercel.app/
+## Demo
+https://gerador-qr-code-lli3wprch-leoo1992s-projects.vercel.app/
 
-# Como Iniciar : 
+## Demonstração em vídeo
+https://www.loom.com/share/23d4798a8c4640708469c5f195270ab5
 
-
-## Passo 1: 
-
-* Clonar esse repositório com:
-
-```bash
-git clone https://github.com/leoo1992/GeradorQRCode.git
-```
-
-## Passo 2: Iniciando o Aplicativo
+## Como executar
+O projeto executável está dentro de `GeradorQRCode`:
 
 ```bash
-# usando npm
+cd GeradorQRCode
 npm install
 npm start
-
-
-# Ou usando Yarn
-yarn add
-yarn start
 ```
-
-Agora você deverá ver seu o aplicativo em execução local no seu navegador.
-
-# Foto do app: 
- ![app.png](./GeradorQRCode/src/Assets/app.png)
