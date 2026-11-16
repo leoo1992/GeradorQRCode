@@ -8,7 +8,7 @@ A web application that generates a QR code from text and reads a QR code from an
 - QR code generation and image/camera scanning libraries
 
 ## Demo
-https://gerador-qr-code-lli3wprch-leoo1992-projects.vercel.app/
+https://gerador-qr-code-lli3wprch-leoo1992.vercel.app/
 
 ## Video walkthrough
 https://www.loom.com/share/23d4798a8c4640708469c5f195270ab5
